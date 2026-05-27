@@ -1138,6 +1138,14 @@ nav {
     .footer-logo-side {
         text-align: center;
     }
+    
+    .qty-stepper {
+        gap: 0.8rem;
+    }
+    
+    .calc-qty-controls {
+        padding: 0.8rem 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1156,5 +1164,12 @@ nav {
     .trust-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    .calc-qty-controls {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        align-items: center;
     }
 }
