@@ -162,8 +162,6 @@ function sendWhatsAppOrder(e) {
     if (e) e.preventDefault();
     
     const name = document.getElementById('checkout-name').value.trim();
-    const city = document.getElementById('checkout-city').value.trim();
-    const address = document.getElementById('checkout-address').value.trim();
     
     if (!name) {
         alert("Por favor, preencha seu nome.");
@@ -185,13 +183,10 @@ function sendWhatsAppOrder(e) {
         msg += `✨ *Economia:* R$ ${formatCurrency(savings)} (Desconto aplicado!)\n`;
     }
     
-    msg += `\n👤 *Dados do Cliente:*\n`;
-    msg += `• *Nome:* ${name}\n`;
-    if (city) msg += `• *Cidade/Estado:* ${city}\n`;
-    if (address) msg += `• *Endereço:* ${address}\n`;
+    msg += `\n👤 *Nome:* ${name}\n`;
     
     msg += `\n---`;
-    msg += `\nAguardando instruções de pagamento via Pix/Cartão para concluir o envio!`;
+    msg += `\nAguardando combinar retirada e pagamento via Pix!`;
     
     // Encode url format
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;

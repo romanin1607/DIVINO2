@@ -685,6 +685,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem 1rem;
     opacity: 0;
     pointer-events: none;
     transition: var(--transition-smooth);
@@ -706,6 +707,8 @@ nav {
     position: relative;
     width: 92%;
     max-width: 480px;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
     background: #0c0f1d;
     border: 1px solid var(--border-color);
     border-radius: 20px;
