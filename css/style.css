@@ -1065,9 +1065,25 @@ nav {
    ========================================================================== */
 
 @media (max-width: 1024px) {
-    .hero-grid, .product-grid, .pricing-layout, .info-cards-grid {
+    .hero-grid, .product-grid, .info-cards-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+    
+    .pricing-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 3rem;
+    }
+    
+    .pricing-info-col, .price-calculator-card {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto !important;
+        box-sizing: border-box;
     }
     
     .hero-content {
@@ -1145,6 +1161,12 @@ nav {
     
     .calc-qty-controls {
         padding: 0.8rem 1rem;
+    }
+    
+    .pricing-info-col, .price-calculator-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
     }
 }
 
