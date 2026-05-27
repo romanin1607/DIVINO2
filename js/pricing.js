@@ -32,103 +32,7 @@ function formatCurrency(value) {
     return value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-// Dynamic 3D visualizer based on quantity range
-function updateVisualizer(qty) {
-    const container = document.getElementById('pack-visual-container');
-    if (!container) return;
-    
-    let html = '';
-    
-    if (qty >= 1 && qty <= 19) {
-        // Level 1: 1 pack lying down
-        html = `
-            <div class="visual-state level-1" style="animation: animFadeIn 0.3s ease;">
-                <img src="assets/pacote.png" class="visual-pack-img single-pack-deitado" alt="1 Pacote">
-            </div>
-        `;
-    } else if (qty >= 20 && qty <= 39) {
-        // Level 2: 5 packs stacked
-        html = `
-            <div class="visual-state level-2" style="animation: animFadeIn 0.3s ease;">
-                <img src="assets/pacote.png" class="visual-pack-img stack-2 p1" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-2 p2" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-2 p3" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-2 p4" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-2 p5" alt="Pacote">
-            </div>
-        `;
-    } else if (qty >= 40 && qty <= 59) {
-        // Level 3: 10 packs stacked (larger stack)
-        html = `
-            <div class="visual-state level-3" style="animation: animFadeIn 0.3s ease;">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p1" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p2" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p3" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p4" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p5" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p6" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p7" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p8" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p9" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-3 p10" alt="Pacote">
-            </div>
-        `;
-    } else if (qty >= 60 && qty <= 79) {
-        // Level 4: big pile (16 packs stacked side-by-side)
-        html = `
-            <div class="visual-state level-4" style="animation: animFadeIn 0.3s ease;">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p1" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p2" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p3" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p4" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p5" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p6" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p7" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p8" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p9" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p10" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p11" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p12" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p13" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p14" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p15" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-4 p16" alt="Pacote">
-            </div>
-        `;
-    } else {
-        // Level 5: 80+ mountain of packs (24 packs overlapping messy)
-        html = `
-            <div class="visual-state level-5" style="animation: animFadeIn 0.3s ease;">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p1" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p2" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p3" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p4" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p5" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p6" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p7" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p8" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p9" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p10" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p11" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p12" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p13" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p14" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p15" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p16" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p17" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p18" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p19" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p20" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p21" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p22" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p23" alt="Pacote">
-                <img src="assets/pacote.png" class="visual-pack-img stack-5 p24" alt="Pacote">
-            </div>
-        `;
-    }
-    
-    container.innerHTML = html;
-}
+
 
 // Update DOM elements reflecting the state
 function updatePricingUI() {
@@ -167,8 +71,6 @@ function updatePricingUI() {
     // Update active state in tier buttons
     updateTierButtonsHighlight(unitPrice);
     
-    // Update the interactive 3D visualizer
-    updateVisualizer(currentQuantity);
 }
 
 // Update the active classes in the UI tier selection grid
