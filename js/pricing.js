@@ -1,5 +1,5 @@
 // ==========================================================================
-// PRICING SYSTEM & CALCULATION LOGIC (DIVINO TERROIR)
+// PRICING SYSTEM & CALCULATION LOGIC (PONTO CARD)
 // ==========================================================================
 
 // Global state

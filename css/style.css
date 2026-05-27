@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DESIGN SYSTEM & CUSTOM PROPERTIES (DIVINO TERROIR • PANINI COPA 2026)
+   DESIGN SYSTEM & CUSTOM PROPERTIES (PONTO CARD • PANINI COPA 2026)
    ========================================================================== */
 
 :root {
@@ -36,6 +36,8 @@ html {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: var(--accent-gold) var(--bg-main);
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -186,6 +188,13 @@ nav {
 
 .logo i {
     color: var(--accent-gold);
+}
+
+.logo-img {
+    height: 32px;
+    width: auto;
+    border-radius: 6px;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -1095,6 +1104,19 @@ nav {
         display: none; /* Hide standard links to declutter on smaller devices */
     }
     
+    nav .btn-primary {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .logo-img {
+        height: 28px;
+    }
+    
     section {
         padding: 60px 0;
     }
@@ -1125,6 +1147,10 @@ nav {
     
     .hero-actions .btn-primary, .hero-actions .btn-secondary {
         width: 100%;
+    }
+    
+    nav .btn-primary {
+        display: none;
     }
     
     .trust-grid {
